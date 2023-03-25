@@ -44,7 +44,6 @@ public class RequestService {
 
     public Mono<ResponseEntity<Void>> saveActivity(UUID uuid, Long activity) {
         ActivDto activDto = new ActivDto(uuid, activity);
-        log.info("got - "+ activDto);
         return requester.route("activity").data(activDto).retrieveMono(new ParameterizedTypeReference<>() {
             @Override
             public Type getType() {
